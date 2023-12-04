@@ -3,7 +3,7 @@
 This module containing the BaseModel class.
 """
 
-import models
+from models import storage
 import uuid
 from datetime import datetime
 
@@ -46,6 +46,7 @@ class BaseModel:
         Updates public instance attribute updated_at with current datetime.
         """
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
