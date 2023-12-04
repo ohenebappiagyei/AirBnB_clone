@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module containing the BaseModel class.
+This is the module containing the BaseModel class.
 """
 
 from models import storage
@@ -26,12 +26,13 @@ class BaseModel:
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
-        if len(kwargs) != 0:
+        if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.strptime(value, form)
+                    setattr(self, key, datetime.strptime(value, from))
                 else:
-                    self.__dict__[key] = value
+                    setattr(self, key, value)
+
 
     def __str__(self):
         """
