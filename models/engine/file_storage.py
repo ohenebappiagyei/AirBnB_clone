@@ -16,29 +16,27 @@ class FileStorage:
 
     def all(self):
         """returns the dictionary __objects"""
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id"""
-        key = obj.__class__.__name__
-        obj = FileStorage.__objects["{}.{}".format(key, obj.id)]
+        """Sets in __objects the obj with key <obj class name>.id."""
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        FileStorage.__objects[key] = obj
 
     def save(self):
-        """Serialize __objects to the JSON file __file_path."""
-        o_dict = FileStorage.__objects
-        obj_dict = {obj: o_dict[obj].to_dict() for obj in o_dict.keys()}
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump(obj_dict, f)
+        """Serializes __objects to the JSON file (path: __file_path)."""
+        serialized_objects = {}
+        for key, obj in FileStorage.__objects.items():
+            serialized_objects[key] = obj.to_dict()
+        with open(FileStorage.__file_path, 'w') as f:
+            json.dump(serialized_objects, f)
 
     def reload(self):
         """Deserialize the JSON file __file_path to __objects, if it exists."""
-        try:
-            with open(self.__file_path, 'r') as file:
-                loaded_objects = json.load(file)
-                for key, obj_dict in loaded_objects.items():
-                    class_name, obj_id = key.split('.')
-                    class_obj = globals()[class_name]
-                    obj_instance = class_obj(**obj_dict)
-                    self.__objects[key] = obj_instance
-        except FileNotFoundError:
-            pass
+        if not os.path.isfile(FileStorage.__file_path):
+            return
+        with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
+            objdict = json.load(f)
+            objdict = {key: self.classes()[value["__class__"]](**value)
+                       for key, value in objdict.items()}
+            FileStorage.__objects = objdict
