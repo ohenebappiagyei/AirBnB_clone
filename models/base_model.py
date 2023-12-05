@@ -32,7 +32,8 @@ class BaseModel:
                     setattr(self, key, datetime.strptime(value, form))
                 else:
                     setattr(self, key, value)
-
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         """
