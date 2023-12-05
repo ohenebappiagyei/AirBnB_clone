@@ -2,6 +2,8 @@
 """Defines a FileStorage class"""
 import json
 from os.path import exists
+from models.user import User
+from models.base_model import BaseModel
 
 
 class FileStorage:
