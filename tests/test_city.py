@@ -2,6 +2,7 @@
 """Unittests for testing City class."""
 import unittest
 from models.city import City
+import models
 
 
 class TestCity_instantiation(unittest.TestCase):
@@ -11,7 +12,7 @@ class TestCity_instantiation(unittest.TestCase):
         self.assertEqual(City, type(City()))
 
     def test_new_instance_stored_in_objects(self):
-        self.assertIn(City(), City.all().values())
+        self.assertIn(City(), models.storage.all().values())
 
     def test_id_is_public_str(self):
         self.assertEqual(str, type(City().id))
