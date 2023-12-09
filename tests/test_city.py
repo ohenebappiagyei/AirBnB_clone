@@ -77,7 +77,5 @@ class TestCity_instantiation(unittest.TestCase):
         self.assertNotIn(None, city.__dict__.values())
 
 
-
 if __name__ == "__main__":
     unittest.main()
-
