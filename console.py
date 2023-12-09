@@ -30,16 +30,16 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """Create a new instance of BaseModel, save it, and print the id."""
+        """Create a new instance of a class, save it, and print the id."""
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ["BaseModel"]:
+        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
-        new_instance = BaseModel()
+        new_instance = globals()[class_name]()
         new_instance.save()
         print(new_instance.id)
 
@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ["BaseModel"]:
+        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -70,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ["BaseModel"]:
+        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -86,24 +86,21 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Print all string representations of instances."""
-    args = arg.split()
-    obj_list = []
-    if len(args) == 0:
+        args = arg.split()
+        obj_list = []
+        if len(args) == 0:
+            for key, value in storage.all().items():
+                obj_list.append(str(value))
+            print(obj_list)
+            return
+        class_name = args[0]
+        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+            print("** class doesn't exist **")
+            return
         for key, value in storage.all().items():
-            obj_list.append(str(value))
+            if class_name in key:
+                obj_list.append(str(value))
         print(obj_list)
-        return
-    class_name = args[0]
-    if class_name not in ["BaseModel", "User", "State", "City",
-                          "Place", "Amenity", "Review"]:
-        print("** class doesn't exist **")
-        return
-
-    instances = storage.all(class_name)
-
-    for key, value in instances.items():
-        obj_list.append(str(value))
-    print(obj_list)
 
     def do_update(self, arg):
         """Update an instance based on the class name and id."""
@@ -112,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in ["BaseModel"]:
+        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
