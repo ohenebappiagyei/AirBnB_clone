@@ -36,7 +36,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+        if class_name not in globals() or
+        not issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         new_instance = globals()[class_name]()
@@ -50,7 +51,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+        if class_name not in globals() or not
+        issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -70,7 +72,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+        if class_name not in globals() or not
+        issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
@@ -94,7 +97,8 @@ class HBNBCommand(cmd.Cmd):
             print(obj_list)
             return
         class_name = args[0]
-        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+        if class_name not in globals() or not
+        issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         for key, value in storage.all().items():
@@ -109,7 +113,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in globals() or not issubclass(globals()[class_name], BaseModel):
+        if class_name not in globals() or not
+        issubclass(globals()[class_name], BaseModel):
             print("** class doesn't exist **")
             return
         if len(args) < 2:
