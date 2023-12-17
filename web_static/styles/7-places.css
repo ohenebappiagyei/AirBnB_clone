@@ -1,0 +1,49 @@
+.places {
+    margin-top: 20px;
+    
+}
+
+.places article_1{
+    float: left;
+    margin: 0 1.5%
+    background-color: white;
+    height: 70px;
+    width: 30%;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.places article_2{
+    float: right;
+    margin: 0 1.5%
+    width: 30%;
+    background-color: white;
+    height: 70px;
+    width: 30%;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.places article_3{
+    margin-top: 100px;
+    float: right;
+    margin-left: auto;
+    width: 30%;
+    padding: 5px;
+    background-color: white;
+    height: 70px;
+    width: 30%;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
