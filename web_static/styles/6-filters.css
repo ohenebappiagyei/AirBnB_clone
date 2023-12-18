@@ -16,32 +16,48 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    padding-left: 30px;
 }
 
 .locations {
+    ;
     border-left: 1px solid #DDDDDD;
-    padding-left: 10px;
+    padding-left: 60px;
 }
 
 .amenities {
     border-left: 1px solid #DDDDDD;
-    padding-left: 10px;
+    padding-right: 100px;
 }
 
 .popover {
     display: none;
     position: absolute;
     background-color: #FAFAFA;
-    width: 100%;
+    width: 70%;
     border: 1px solid #DDDDDD;
-    border-radius: 4px;
-    padding: 10px;
+    border-radius: 2px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    margin-right: 80px;
     list-style: none;
 }
 
 .locations:hover .popover,
 .amenities:hover .popover {
     display: block;
+    margin-top: 18px;
+    margin-right: 100px;
+   
+}
+
+.locations:hover .popover {
+    padding-right: 32px;
+    transform: translateX(-20%);
+}
+
+.amenities:hover .popover {
+    transform: translateX(-10%);
 }
 
 .popover h2 {
@@ -49,16 +65,18 @@
 }
 
 button.search-button {
-    background-color: #ff5a5f;
+    background-color: #FF5A5F;
     color: #FFFFFF;
     font-size: 18px;
     height: 48px;
     width: 20%;
-    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: auto;
+    margin-right: 2%;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    opacity: 1.0;
 }
 
 footer {

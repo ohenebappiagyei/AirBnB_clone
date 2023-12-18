@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 100px;
 
     
 }
@@ -30,12 +31,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 100px;
 }
 
 .places article_3{
     margin-top: 100px;
-    float: right;
-    margin-left: auto;
+    float: none;
+    margin-left: 400px;
     width: 30%;
     padding: 5px;
     background-color: white;
@@ -46,4 +48,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 60px;
+    padding-right: 60px;
 }
