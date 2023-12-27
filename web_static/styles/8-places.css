@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .places h1, .places h2 {
@@ -12,9 +11,7 @@
 
 .places article {
     width: 390px;
-    min-width: 390px;
-    margin: 20px;
-    padding: 20px;
+    min-width: 50px;
     border: #FF5A5F 1px solid;
     border-radius: 4px;
     text-align: center;
@@ -24,6 +21,24 @@
     flex-wrap: wrap;
     
 }
+#my-home {
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: -250px;
+}
+
+#tiny-house {
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+#suite {
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 70px;
+}
 
 .places h1 {
     width: 100%;
@@ -31,7 +46,7 @@
 
 .places h2 {
     width: 80%;
-    margin-left: 02px;
+    margin-left: 2px;
 
 }
 
@@ -56,22 +71,24 @@
     padding: 5px 0 60px 0;
     width: 100px;
 }
-
 .max_guest p{
     background: url("../images/icon_group.png") no-repeat top center;
     height: 250%;
+    padding-top: 40%;
     padding-bottom: 2px;
 }
 
 .number_rooms p{
     background: url("../images/icon_bed.png") no-repeat top center;
     height: 250%;
+    padding-top: 40%;
     padding-bottom: 2px;
 }
 
 .number_bathrooms p{
     background: url("../images/icon_bath.png") no-repeat top center;
     height: 250%;
+    padding-top: 40%;
     padding-bottom: 2px;
 }
 
